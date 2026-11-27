@@ -1,0 +1,6 @@
+{
+  "name": "NŪRA Restaurant",
+  "description": "Contemporary Middle Eastern & International fine dining experience — bilingual English/Arabic website with menu filtering, gallery lightbox, and WhatsApp table reservations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
