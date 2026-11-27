@@ -78,7 +78,7 @@ export const MenuPage: React.FC = () => {
         {/* Controls Bar: Categories, Search, Dietary, Currency */}
         <section
           aria-label="Menu filters"
-          className="bg-sand/65 rounded-2xl p-5 border border-olive/10 space-y-5"
+          className="bg-sand/65 rounded-2xl p-4 sm:p-5 border border-olive/10 space-y-4 sm:space-y-5 max-w-full overflow-hidden"
         >
           {/* Category Tabs */}
           <div
@@ -95,7 +95,7 @@ export const MenuPage: React.FC = () => {
                   role="tab"
                   aria-selected={active}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+                  className={`px-3.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                     active
                       ? 'bg-olive text-cream'
                       : 'bg-cream/80 text-olive hover:bg-white border border-olive/10'
@@ -109,7 +109,7 @@ export const MenuPage: React.FC = () => {
 
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pt-3 border-t border-olive/10">
             {/* Search Input */}
-            <div className="relative flex-1 max-w-md">
+            <div className="relative w-full lg:flex-1 lg:max-w-md">
               <Search
                 className="w-4 h-4 text-muted absolute start-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
                 aria-hidden="true"
@@ -125,8 +125,8 @@ export const MenuPage: React.FC = () => {
             </div>
 
             {/* Dietary + Currency */}
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="inline-flex items-center gap-1 p-1 rounded-xl bg-cream border border-olive/10">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 w-full lg:w-auto">
+              <div className="grid grid-cols-2 sm:inline-flex sm:flex-wrap items-center gap-1 p-1 rounded-xl bg-cream border border-olive/10 w-full sm:w-auto">
                 {DIETARY_OPTIONS.map((opt) => {
                   const active = dietary === opt.value;
                   return (
@@ -135,7 +135,7 @@ export const MenuPage: React.FC = () => {
                       type="button"
                       onClick={() => setDietary(opt.value)}
                       aria-pressed={active}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+                      className={`px-2.5 sm:px-3 py-2 sm:py-1.5 rounded-lg text-xs font-medium transition-colors text-center truncate cursor-pointer ${
                         active
                           ? 'bg-olive text-cream'
                           : 'text-muted hover:text-olive'
@@ -147,18 +147,18 @@ export const MenuPage: React.FC = () => {
                 })}
               </div>
 
-              <div className="inline-flex items-center gap-1.5">
-                <span className="text-xs font-medium text-muted">
+              <div className="flex items-center justify-between sm:justify-start gap-2 w-full sm:w-auto">
+                <span className="text-xs font-medium text-muted shrink-0">
                   {t('menu.currencyLabel')}:
                 </span>
-                <div className="inline-flex items-center gap-1 p-1 rounded-xl bg-cream border border-olive/10">
+                <div className="inline-flex flex-wrap items-center gap-1 p-1 rounded-xl bg-cream border border-olive/10">
                   {CURRENCIES.map((code) => (
                     <button
                       key={code}
                       type="button"
                       onClick={() => setCurrency(code)}
                       aria-pressed={currency === code}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-semibold tabular-nums transition-colors cursor-pointer ${
+                      className={`px-2.5 py-1.5 sm:py-1 rounded-lg text-xs font-semibold tabular-nums transition-colors cursor-pointer ${
                         currency === code
                           ? 'bg-gold-bright text-olive-deep'
                           : 'text-muted hover:text-olive'
