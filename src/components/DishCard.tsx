@@ -25,10 +25,13 @@ export const DishCard: React.FC<DishCardProps> = ({dish, compact = false}) => {
           <img
             src={dish.image}
             alt={dish.name[lang]}
+            width={960}
+            height={717}
             loading="lazy"
+            decoding="async"
             referrerPolicy="no-referrer"
             onError={() => setImgError(true)}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
           />
         </div>
       ) : (

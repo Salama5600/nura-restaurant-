@@ -60,6 +60,28 @@ export interface BranchInfo {
   valetNote: LocalizedText;
   coordinates: string;
   mapUrl: string;
+  mapNote: LocalizedText;
+}
+
+export interface DemoStatMetric {
+  id: string;
+  value: string;
+  hasStar?: boolean;
+  labelKey: string;
+}
+
+export interface SocialLinkItem {
+  id: 'instagram' | 'x';
+  label: LocalizedText;
+  handle: string;
+  url: string;
+}
+
+export interface SiteConfig {
+  brandName: LocalizedText;
+  defaultCurrency: CurrencyCode;
+  serviceHoursSummary: LocalizedText;
+  socialLinks: SocialLinkItem[];
 }
 
 export interface TeamMember {

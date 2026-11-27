@@ -121,9 +121,12 @@ export const GalleryPage: React.FC = () => {
                 <img
                   src={item.image}
                   alt={item.title[lang]}
+                  width={960}
+                  height={717}
                   loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 />
                 <span
                   aria-hidden="true"

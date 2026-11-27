@@ -1,7 +1,7 @@
 import React from 'react';
 import {Instagram, Mail, MapPin, Phone} from 'lucide-react';
 import {useApp} from '../context/AppContext';
-import {BRANCHES} from '../data/restaurantData';
+import {BRANCHES, SITE_CONFIG} from '../data/restaurantData';
 import {CurrencyCode, PageRoute} from '../types';
 import {BrandEmblem} from './BrandMark';
 
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
               {t('footer.tagline')}
             </p>
             <p className="text-xs text-gold-bright font-medium">
-              {t('footer.hours')}
+              {SITE_CONFIG.serviceHoursSummary[lang]}
             </p>
           </div>
 
@@ -141,12 +141,10 @@ export const Footer: React.FC = () => {
                 <Mail className="w-4 h-4" aria-hidden="true" />
               </a>
               <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate('contact');
-                }}
-                aria-label="View branches and social channels"
+                href={SITE_CONFIG.socialLinks[0].url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={SITE_CONFIG.socialLinks[0].label[lang]}
                 className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-cream/80 hover:text-gold-bright hover:border-gold-bright transition-colors"
               >
                 <Instagram className="w-4 h-4" aria-hidden="true" />

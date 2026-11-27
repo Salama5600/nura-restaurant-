@@ -65,8 +65,12 @@ export const AboutPage: React.FC = () => {
                   ? 'NŪRA restaurant interior dining room'
                   : 'تصميم صالة الطعام الداخلية في مطعم نُورا'
               }
+              width={1376}
+              height={768}
+              loading="eager"
+              decoding="async"
               referrerPolicy="no-referrer"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
           </div>
         </section>

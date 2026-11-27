@@ -1,0 +1,137 @@
+NŪRA RESTAURANT TEMPLATE — THIRD-PARTY ASSETS & CREDITS
+======================================================
+
+This file lists all fonts, icons, photography assets, and software libraries
+present in the NŪRA project, along with their providers, source URLs, license
+status, attribution requirements, and commercial template redistribution notes.
+
+================================================================
+1. FONTS (Loaded via Google Fonts in index.html)
+================================================================
+
+1) Cormorant Garamond
+   - Author / Designer: Christian Thalmann (Catharsis Fonts)
+   - Official Source: https://fonts.google.com/specimen/Cormorant+Garamond
+   - License: SIL Open Font License 1.1 (OFL-1.1)
+   - Attribution Required: No (optional in source files; keep OFL text if
+     font files are bundled offline)
+   - Commercial Template Redistribution: Permitted under SIL OFL 1.1 when
+     bundled with its license text, or loaded dynamically via Google Fonts.
+
+2) DM Sans
+   - Author / Provider: Colophon Foundry / Google Fonts
+   - Official Source: https://fonts.google.com/specimen/DM+Sans
+   - License: SIL Open Font License 1.1 (OFL-1.1)
+   - Attribution Required: No
+   - Commercial Template Redistribution: Permitted under SIL OFL 1.1 when
+     bundled with its license text, or loaded dynamically via Google Fonts.
+
+3) IBM Plex Sans Arabic
+   - Author / Provider: IBM Corp. (Bold Monday)
+   - Official Source: https://fonts.google.com/specimen/IBM+Plex+Sans+Arabic
+   - License: SIL Open Font License 1.1 (OFL-1.1)
+   - Attribution Required: No
+   - Commercial Template Redistribution: Permitted under SIL OFL 1.1 when
+     bundled with its license text, or loaded dynamically via Google Fonts.
+
+================================================================
+2. ICONS & VECTOR GRAPHICS
+================================================================
+
+1) Lucide Icons (`lucide-react` v0.546.0)
+   - Author / Provider: Lucide Contributors
+   - Official Source: https://lucide.dev / https://github.com/lucide-icons/lucide
+   - License: ISC License
+   - Attribution Required: Retain copyright and ISC permission notice in
+     distributed packages
+   - Commercial Template Redistribution: Permitted under ISC License.
+
+2) Brand Emblem & Laurel Wreath SVGs (`src/components/BrandMark.tsx`)
+   - Author / Provider: Original inline SVG artwork created for NŪRA
+   - Source: Local project file (`src/components/BrandMark.tsx`)
+   - License: Included as part of the NŪRA Template
+   - Attribution Required: None
+   - Commercial Template Redistribution: Permitted as part of the template.
+
+3) Contact Architectural Grid SVG (`src/pages/ContactPage.tsx`)
+   - Author / Provider: Original inline SVG pattern created for NŪRA
+   - Source: Local project file (`src/pages/ContactPage.tsx`)
+   - License: Included as part of the NŪRA Template
+   - Attribution Required: None
+   - Commercial Template Redistribution: Permitted as part of the template.
+
+================================================================
+3. PHOTOGRAPHY & VISUAL ASSETS (`src/assets/images/*.webp`)
+================================================================
+
+Files included in `src/assets/images/`:
+- hero-signature-salmon.webp (1376x768)
+- about-dining-interior.webp (1376x768)
+- dish-truffle-risotto.webp (960x717)
+- dish-beef-tenderloin.webp (960x717)
+- dish-pistachio-dessert.webp (960x717)
+- dish-charred-aubergine-labneh.webp (960x717)
+- dish-hokkaido-scallop.webp (960x717)
+- dish-braised-lamb-freekeh.webp (960x717)
+- dish-gulf-hammour.webp (960x717)
+- dish-date-millefeuille.webp (960x717)
+- dish-pomegranate-elixir.webp (960x717)
+- dish-arabic-coffee.webp (960x717)
+
+- Provider / Origin: AI-generated culinary and interior images created inside
+  the AI Studio build session and optimized locally to WebP.
+- Official Source URL: N/A (generated session assets; no third-party stock URL)
+- License Name: **UNVERIFIED FOR PAID TEMPLATE REDISTRIBUTION**
+- Attribution Required: Unknown / depends on platform Terms of Service
+- Commercial Template Redistribution Status:
+  [FLAGGED FOR MANUAL VERIFICATION]
+  Before selling or redistributing this template on a commercial marketplace,
+  the Seller must verify the commercial redistribution terms of the image
+  generation service under Google's / AI Studio's Terms of Service, OR replace
+  these 12 WebP files with original photography or stock assets whose license
+  explicitly allows commercial template redistribution.
+
+================================================================
+4. JAVASCRIPT & CSS LIBRARIES (`package.json`)
+================================================================
+
+Active Frontend Dependencies (imported by `src/`):
+1) React & React DOM (`react`, `react-dom` ^19.0.1)
+   - Author / Provider: Meta Platforms, Inc.
+   - Official Source: https://react.dev
+   - License: MIT License
+   - Commercial Redistribution: Permitted under MIT (retain copyright/license).
+
+2) Tailwind CSS & Vite Plugin (`tailwindcss`, `@tailwindcss/vite` ^4.3.3)
+   - Author / Provider: Tailwind Labs, Inc.
+   - Official Source: https://tailwindcss.com
+   - License: MIT License
+   - Commercial Redistribution: Permitted under MIT (retain copyright/license).
+
+3) Vite & Vite React Plugin (`vite` ^8.3.0, `@vitejs/plugin-react` ^6.1.1)
+   - Author / Provider: Evan You and Vite Contributors
+   - Official Source: https://vite.dev
+   - License: MIT License
+   - Commercial Redistribution: Permitted under MIT.
+
+4) TypeScript (`typescript` ^7.0.2), esbuild (`^0.28.0`), Autoprefixer (`^10.4.21`)
+   - Licenses: Apache-2.0 (TypeScript), MIT (esbuild, Autoprefixer)
+   - Official Sources: https://www.typescriptlang.org, https://esbuild.github.io
+   - Commercial Redistribution: Permitted (dev/build tools).
+
+Additional Workspace Dependencies (present in `package.json`, NOT imported by NŪRA):
+- `@google/genai` (^2.4.0, Apache-2.0)
+- `express` (^4.21.2, MIT)
+- `dotenv` (^17.2.3, BSD-2-Clause)
+- `motion` (^12.23.24, MIT)
+- `tsx` (^4.21.0, MIT)
+(These remain in `package.json` from the starter workspace environment; verify
+or prune unused packages before creating a minimal marketplace ZIP if desired.)
+
+================================================================
+5. EXTERNAL SERVICE LINKS
+================================================================
+- Google Maps links (`https://maps.google.com/?q=...` in `src/data/restaurantData.ts`):
+  External links only; no Google Maps SDK or API key is embedded.
+- WhatsApp handoff (`https://wa.me/...` in `src/pages/ReservationPage.tsx`):
+  Standard external URL handoff; no WhatsApp SDK or API credentials are used.

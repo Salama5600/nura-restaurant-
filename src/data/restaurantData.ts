@@ -1,11 +1,43 @@
 import {
   BranchInfo,
   CurrencyCode,
+  DemoStatMetric,
   GalleryItem,
   MenuItem,
+  SiteConfig,
   TeamMember,
   TestimonialSample,
 } from '../types';
+
+/**
+ * ============================================================================
+ * NŪRA TEMPLATE CONFIGURATION — EDIT HERE TO CUSTOMIZE YOUR RESTAURANT
+ * ============================================================================
+ * Replace the sample brand, currency rates, social URLs, branches, menu items,
+ * and team/testimonial copy below with your verified business information.
+ */
+export const SITE_CONFIG: SiteConfig = {
+  brandName: {en: 'NŪRA', ar: 'نُورا'},
+  defaultCurrency: 'USD',
+  serviceHoursSummary: {
+    en: 'Daily Service · 1:00 PM – 12:30 AM (varies by branch)',
+    ar: 'خدمة يومية · ١:٠٠ ظهراً – ١٢:٣٠ صباحاً (تختلف حسب الفرع)',
+  },
+  socialLinks: [
+    {
+      id: 'instagram',
+      label: {en: 'Instagram (Sample Profile)', ar: 'إنستغرام (حساب تجريبي)'},
+      handle: '@nura.dining.demo',
+      url: 'https://instagram.com',
+    },
+    {
+      id: 'x',
+      label: {en: 'X / Updates (Sample Profile)', ar: 'إكس (حساب تجريبي)'},
+      handle: '@nura_dining_demo',
+      url: 'https://x.com',
+    },
+  ],
+};
 
 export const CURRENCY_CONFIG: Record<
   CurrencyCode,
@@ -31,14 +63,33 @@ export const formatPrice = (
   return lang === 'ar' ? `${converted} ${symbol.trim()}` : `${symbol}${converted}`;
 };
 
+/**
+ * Optimized local WebP photography assets (16:9 hero/interior, 4:3 dishes).
+ * Replace files in /src/assets/images/ with your own photography if desired.
+ */
 export const IMAGES = {
-  heroSalmon: '/src/assets/images/hero_signature_salmon_1795812824846.jpg',
-  aboutInterior: '/src/assets/images/about_dining_interior_1795812825701.jpg',
-  truffleRisotto: '/src/assets/images/dish_truffle_risotto_1795812825693.jpg',
-  beefTenderloin: '/src/assets/images/dish_beef_tenderloin_1795812826626.jpg',
-  pistachioDessert: '/src/assets/images/dish_pistachio_dessert_1795812827052.jpg',
-  mezzeStarter: '/src/assets/images/dish_mezze_starter_1795812827169.jpg',
+  heroSalmon: '/src/assets/images/hero-signature-salmon.webp',
+  aboutInterior: '/src/assets/images/about-dining-interior.webp',
+  truffleRisotto: '/src/assets/images/dish-truffle-risotto.webp',
+  beefTenderloin: '/src/assets/images/dish-beef-tenderloin.webp',
+  pistachioDessert: '/src/assets/images/dish-pistachio-dessert.webp',
+  mezzeStarter: '/src/assets/images/dish-charred-aubergine-labneh.webp',
+  scallopCrudo: '/src/assets/images/dish-hokkaido-scallop.webp',
+  lambFreekeh: '/src/assets/images/dish-braised-lamb-freekeh.webp',
+  gulfHammour: '/src/assets/images/dish-gulf-hammour.webp',
+  dateMillefeuille: '/src/assets/images/dish-date-millefeuille.webp',
+  pomegranateElixir: '/src/assets/images/dish-pomegranate-elixir.webp',
+  arabicCoffee: '/src/assets/images/dish-arabic-coffee.webp',
 };
+
+/**
+ * Sample homepage milestones — strictly demonstration numbers for template preview.
+ */
+export const DEMO_STATS: DemoStatMetric[] = [
+  {id: 'years', value: '10+', labelKey: 'about.metricYearsLabel'},
+  {id: 'guests', value: '50k+', labelKey: 'about.metricGuestsLabel'},
+  {id: 'rating', value: '4.8', hasStar: true, labelKey: 'about.metricRatingLabel'},
+];
 
 export const MENU_ITEMS: MenuItem[] = [
   {
@@ -115,44 +166,48 @@ export const MENU_ITEMS: MenuItem[] = [
     id: 'saffron-scallop-crudo',
     name: {en: 'Hokkaido Scallop & Preserved Lime', ar: 'اسكالوب بالزعفران والليمون المعتّق'},
     description: {
-      en: 'Hand-dived scallops dressed with warm saffron emulsion, pickled green chili, and sea fennel.',
+      en: 'Seared and raw Hokkaido scallops dressed with warm saffron emulsion, pickled green chili, and sea fennel.',
       ar: 'اسكالوب طازج مع مستحلب الزعفران الدافئ والفلفل الأخضر المخلل وشمر البحر.',
     },
     category: 'starters',
     priceUsd: 24,
+    image: IMAGES.scallopCrudo,
     glutenFree: true,
   },
   {
     id: 'smoked-freekeh-lamb',
     name: {en: 'Slow-Braised Lamb Shank & Freekeh', ar: 'موزة غنم مطهوة ببطء مع الفريكة'},
     description: {
-      en: 'Eight-hour spiced lamb shoulder over smoky green wheat freekeh, crispy shallots, and yogurt tahini glaze.',
-      ar: 'كتف غنم مطهو ببطء لثماني ساعات مع الفريكة الخضراء المدخنة والبصل المقرمش وصلصة الطحينة.',
+      en: 'Eight-hour spiced lamb shank over smoky green wheat freekeh, crispy shallots, and yogurt tahini glaze.',
+      ar: 'موزة غنم مطهوة ببطء لثماني ساعات مع الفريكة الخضراء المدخنة والبصل المقرمش وصلصة الطحينة.',
     },
     category: 'mains',
     priceUsd: 42,
+    image: IMAGES.lambFreekeh,
     signature: true,
   },
   {
     id: 'gulf-hammour-hearth',
     name: {en: 'Hearth-Roasted Gulf Hammour', ar: 'هامور خليجي مشوي على الحطب'},
     description: {
-      en: 'Line-caught hammour fillet baked in clay salt crust with fennel bulb, dill butter, and tamarind reduction.',
-      ar: 'فيليه هامور طازج مشوي بالفرن مع الشمر وزبدة الشبت وخلاصة التمر الهندي.',
+      en: 'Line-caught hammour fillet roasted crisp with charred baby fennel bulb, dill herb butter, and tamarind reduction.',
+      ar: 'فيليه هامور طازج مشوي على الحطب مع الشمر المشوي وزبدة الشبت وخلاصة التمر الهندي.',
     },
     category: 'grills',
     priceUsd: 40,
+    image: IMAGES.gulfHammour,
     glutenFree: true,
   },
   {
     id: 'date-caramel-millefeuille',
     name: {en: 'Khalas Date Mille-Feuille', ar: 'ميل فوي تمر الخلاص والكراميل'},
     description: {
-      en: 'Caramelized puff pastry layered with mascarpone cream, warm Khalas date reduction, and sea salt.',
+      en: 'Caramelized puff pastry layered with whipped mascarpone cream, warm Khalas date caramel, and flaky sea salt.',
       ar: 'رقائق البف باستري المكرملة مع كريمة الماسكاربوني وصلصة تمر الخلاص الدافئة وملح البحر.',
     },
     category: 'desserts',
     priceUsd: 17,
+    image: IMAGES.dateMillefeuille,
     vegetarian: true,
   },
   {
@@ -164,6 +219,7 @@ export const MENU_ITEMS: MenuItem[] = [
     },
     category: 'beverages',
     priceUsd: 12,
+    image: IMAGES.pomegranateElixir,
     vegetarian: true,
     glutenFree: true,
   },
@@ -176,6 +232,7 @@ export const MENU_ITEMS: MenuItem[] = [
     },
     category: 'beverages',
     priceUsd: 14,
+    image: IMAGES.arabicCoffee,
     vegetarian: true,
     glutenFree: true,
   },
@@ -227,6 +284,28 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     aspect: 'landscape',
   },
   {
+    id: 'g-lamb',
+    title: {en: 'Slow-Braised Lamb & Freekeh', ar: 'موزة الغنم والفريكة المدخنة'},
+    caption: {
+      en: 'Eight-hour braised lamb shank finished with crispy shallots and tahini glaze.',
+      ar: 'موزة غنم مطهوة ببطء مع الفريكة المدخنة والبصل المقرمش وصلصة الطحينة.',
+    },
+    category: 'culinary',
+    image: IMAGES.lambFreekeh,
+    aspect: 'landscape',
+  },
+  {
+    id: 'g-hammour',
+    title: {en: 'Hearth-Roasted Gulf Hammour', ar: 'هامور خليجي مشوي على الحطب'},
+    caption: {
+      en: 'Coastal catch served with charred fennel bulb and herb butter emulsion.',
+      ar: 'سمك الهامور الطازج مع الشمر المشوي وزبدة الأعشاب والتمر الهندي.',
+    },
+    category: 'culinary',
+    image: IMAGES.gulfHammour,
+    aspect: 'landscape',
+  },
+  {
     id: 'g-pistachio',
     title: {en: 'Pistachio & Cardamom Entremet', ar: 'حلوى الفستق والهيل الفاخرة'},
     caption: {
@@ -248,105 +327,141 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     image: IMAGES.mezzeStarter,
     aspect: 'landscape',
   },
+  {
+    id: 'g-coffee',
+    title: {en: 'Arabic Coffee & Dates Service', ar: 'طقوس القهوة العربية والتمر'},
+    caption: {
+      en: 'Brushed brass dallah service poured tableside with pistachio-stuffed dates.',
+      ar: 'خدمة القهوة العربية بالزعفران والهيل من الدلة النحاسية مع التمر المحشو.',
+    },
+    category: 'details',
+    image: IMAGES.arabicCoffee,
+    aspect: 'landscape',
+  },
 ];
 
+/**
+ * Demonstration Gulf branches — replace sample addresses, phones, WhatsApp
+ * numbers, emails, and Google Maps links with your real venue information.
+ */
 export const BRANCHES: BranchInfo[] = [
   {
     id: 'riyadh',
     city: {en: 'Riyadh', ar: 'الرياض'},
-    district: {en: 'Al Olaya — Via Riyadh Quarter', ar: 'العليا — حي فيا الرياض'},
-    address: {
-      en: '4120 Makkah Al Mukarramah Rd, Al Hada, Riyadh 12912, Saudi Arabia',
-      ar: '٤١٢٠ طريق مكة المكرمة، الهدا، الرياض ١٢٩١٢، المملكة العربية السعودية',
+    district: {
+      en: 'Al Olaya District (Demo Branch)',
+      ar: 'حي العليا (فرع تجريبي)',
     },
-    phone: '+966 11 555 0140',
-    whatsapp: '966505550140',
-    email: 'riyadh@nura-dining.example',
+    address: {
+      en: 'Demo Address: Al Olaya Boulevard, Riyadh, Saudi Arabia (replace with your street address)',
+      ar: 'عنوان تجريبي: طريق العليا، الرياض، المملكة العربية السعودية (يُستبدل بعنوانكم)',
+    },
+    phone: '+966 11 000 0140',
+    whatsapp: '966500000140',
+    email: 'riyadh@nura-demo.example',
     hours: {
-      en: 'Daily · 1:00 PM – 12:30 AM (Fri from 1:30 PM)',
-      ar: 'يومياً · ١:٠٠ ظهراً – ١٢:٣٠ صباحاً (الجمعة من ١:٣٠ ظهراً)',
+      en: 'Daily · 1:00 PM – 12:30 AM',
+      ar: 'يومياً · ١:٠٠ ظهراً – ١٢:٣٠ صباحاً',
     },
     valetNote: {
-      en: 'Complimentary valet at North Courtyard · Private dining rooms for up to 18 guests.',
-      ar: 'خدمة صف سيارات مجانية عند البوابة الشمالية · غرف ضيافة خاصة حتى ١٨ ضيفاً.',
+      en: 'Sample arrival note: Complimentary valet service · Private dining rooms for up to 18 guests.',
+      ar: 'ملاحظة وصول تجريبية: خدمة صف سيارات مجانية · غرف ضيافة خاصة حتى ١٨ ضيفاً.',
     },
-    coordinates: '24.6749° N, 46.6311° E',
-    mapUrl: 'https://maps.google.com/?q=24.6749,46.6311',
+    coordinates: 'Riyadh City Reference (Demo)',
+    mapUrl: 'https://maps.google.com/?q=Riyadh+Saudi+Arabia',
+    mapNote: {
+      en: 'Demo city map link — update with your verified Google Maps pin before launch.',
+      ar: 'رابط خريطة تجريبي للمدينة — حدّثه برابط موقع مطعمكم الفعلي قبل النشر.',
+    },
   },
   {
     id: 'dubai',
     city: {en: 'Dubai', ar: 'دبي'},
-    district: {en: 'DIFC — Gate Village 08', ar: 'مركز دبي المالي العالمي — قرية البوابة ٠٨'},
-    address: {
-      en: 'Podium Level, Gate Village 08, DIFC, Dubai, United Arab Emirates',
-      ar: 'طابق البوديوم، قرية البوابة ٠٨، مركز دبي المالي العالمي، دبي، الإمارات',
+    district: {
+      en: 'DIFC Quarter (Demo Branch)',
+      ar: 'مركز دبي المالي (فرع تجريبي)',
     },
-    phone: '+971 4 555 0192',
-    whatsapp: '971505550192',
-    email: 'dubai@nura-dining.example',
+    address: {
+      en: 'Demo Address: Financial Centre Promenade, DIFC, Dubai, UAE (replace with your unit)',
+      ar: 'عنوان تجريبي: ممر المركز المالي، دبي، الإمارات العربية المتحدة (يُستبدل بعنوانكم)',
+    },
+    phone: '+971 4 000 0192',
+    whatsapp: '971500000192',
+    email: 'dubai@nura-demo.example',
     hours: {
       en: 'Daily · 12:30 PM – 1:00 AM',
       ar: 'يومياً · ١٢:٣٠ ظهراً – ١:٠٠ صباحاً',
     },
     valetNote: {
-      en: 'DIFC Gate Village valet · Terrace seating available October through April.',
-      ar: 'خدمة صف سيارات في قرية البوابة · جلسات شرفة خارجية من أكتوبر حتى أبريل.',
+      en: 'Sample arrival note: Valet drop-off at main podium · Seasonal terrace seating available.',
+      ar: 'ملاحظة وصول تجريبية: خدمة صف سيارات عند المدخل الرئيسي · جلسات شرفة موسمية.',
     },
-    coordinates: '25.2116° N, 55.2817° E',
-    mapUrl: 'https://maps.google.com/?q=25.2116,55.2817',
+    coordinates: 'Dubai City Reference (Demo)',
+    mapUrl: 'https://maps.google.com/?q=Dubai+United+Arab+Emirates',
+    mapNote: {
+      en: 'Demo city map link — update with your verified Google Maps pin before launch.',
+      ar: 'رابط خريطة تجريبي للمدينة — حدّثه برابط موقع مطعمكم الفعلي قبل النشر.',
+    },
   },
   {
     id: 'doha',
     city: {en: 'Doha', ar: 'الدوحة'},
-    district: {en: 'Msheireb Downtown', ar: 'مشيرب قلب الدوحة'},
-    address: {
-      en: 'Sikkat Wadi Msheireb, Building 14, Doha, Qatar',
-      ar: 'سكة وادي مشيرب، مبنى ١٤، الدوحة، قطر',
+    district: {
+      en: 'Msheireb Quarter (Demo Branch)',
+      ar: 'حي مشيرب (فرع تجريبي)',
     },
-    phone: '+974 4455 0188',
-    whatsapp: '97455550188',
-    email: 'doha@nura-dining.example',
+    address: {
+      en: 'Demo Address: Msheireb Courtyard, Doha, Qatar (replace with your street address)',
+      ar: 'عنوان تجريبي: ساحة مشيرب، الدوحة، قطر (يُستبدل بعنوانكم)',
+    },
+    phone: '+974 4400 0188',
+    whatsapp: '974500000188',
+    email: 'doha@nura-demo.example',
     hours: {
       en: 'Daily · 1:00 PM – 12:00 AM',
       ar: 'يومياً · ١:٠٠ ظهراً – ١٢:٠٠ منتصف الليل',
     },
     valetNote: {
-      en: 'Underground Msheireb valet · Wheelchair accessible garden entrance.',
-      ar: 'خدمة صف سيارات سفلية في مشيرب · مدخل حديقة مهيأ بالكامل.',
+      en: 'Sample arrival note: Underground valet parking · Step-free garden entrance.',
+      ar: 'ملاحظة وصول تجريبية: مواقف سفلية مع خدمة الصف · مدخل حديقة ميسّر.',
     },
-    coordinates: '25.2867° N, 51.5256° E',
-    mapUrl: 'https://maps.google.com/?q=25.2867,51.5256',
+    coordinates: 'Doha City Reference (Demo)',
+    mapUrl: 'https://maps.google.com/?q=Doha+Qatar',
+    mapNote: {
+      en: 'Demo city map link — update with your verified Google Maps pin before launch.',
+      ar: 'رابط خريطة تجريبي للمدينة — حدّثه برابط موقع مطعمكم الفعلي قبل النشر.',
+    },
   },
 ];
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'chef-tariq',
-    name: {en: 'Chef Tariq Al-Harbi', ar: 'الشيف طارق الحربي'},
+    name: {en: 'Chef Tariq Al-Harbi (Sample)', ar: 'الشيف طارق الحربي (نموذج)'},
     role: {en: 'Executive Culinary Director', ar: 'المدير التنفيذي للمطبخ'},
     bio: {
-      en: 'Trained across Amman, Lyon, and Riyadh, Tariq oversees seasonal hearth menus rooted in Levantine and Gulf coastal produce.',
-      ar: 'يمزج الشيف طارق بخبرته بين عمّان وليون والرياض ليقود قوائم نُورا الموسمية المعتمدة على خيرات الساحل الخليجي.',
+      en: 'Sample bio: Oversees seasonal open-hearth menus rooted in Levantine and Gulf coastal produce.',
+      ar: 'نبذة نموذجية: يشرف على القوائم الموسمية المعتمدة على المكونات الشامية والخليجية الساحلية.',
     },
     initials: 'TH',
   },
   {
     id: 'chef-elena',
-    name: {en: 'Chef Elena Moreau', ar: 'الشيف إيلينا مورو'},
+    name: {en: 'Chef Elena Moreau (Sample)', ar: 'الشيف إيلينا مورو (نموذج)'},
     role: {en: 'Head of Pastry & Botanicals', ar: 'رئيسة قسم الحلويات والمخبوزات'},
     bio: {
-      en: 'Specializes in light, architectural entremets infused with green cardamom, Damascus pistachio, and wild blossom honey.',
-      ar: 'متخصصة في ابتكار الحلويات المتوازنة بنكهات الهيل الأخضر والفستق الشامي وعسل الزهور البرية.',
+      en: 'Sample bio: Crafts light, architectural entremets infused with green cardamom, pistachio, and honey.',
+      ar: 'نبذة نموذجية: متخصصة في ابتكار الحلويات المتوازنة بنكهات الهيل الأخضر والفستق والعسل.',
     },
     initials: 'EM',
   },
   {
     id: 'director-noura',
-    name: {en: 'Nadia Al-Qasimi', ar: 'نادية القاسمي'},
+    name: {en: 'Nadia Al-Qasimi (Sample)', ar: 'نادية القاسمي (نموذج)'},
     role: {en: 'Director of Guest Experience', ar: 'مديرة تجربة الضيوف'},
     bio: {
-      en: 'Curates tableside coffee rituals, private dining celebrations, and unhurried hospitality across all three Gulf venues.',
-      ar: 'تشرف على طقوس القهوة العربية وحفلات العشاء الخاصة ومعايير الضيافة في فروعنا الثلاثة.',
+      en: 'Sample bio: Curates tableside coffee rituals, private dining celebrations, and evening hospitality.',
+      ar: 'نبذة نموذجية: تشرف على طقوس القهوة العربية وحفلات العشاء الخاصة ومعايير الضيافة.',
     },
     initials: 'NQ',
   },
@@ -356,8 +471,8 @@ export const SAMPLE_TESTIMONIALS: TestimonialSample[] = [
   {
     id: 't1',
     author: {en: 'Sample Guest — Faisal R.', ar: 'نموذج ضيف — فيصل ر.'},
-    city: {en: 'Riyadh Branch', ar: 'فرع الرياض'},
-    visitContext: {en: 'Anniversary Dinner', ar: 'عشاء مناسبة خاصة'},
+    city: {en: 'Riyadh Demo Branch', ar: 'فرع الرياض التجريبي'},
+    visitContext: {en: 'Sample Review · Anniversary', ar: 'مراجعة نموذجية · مناسبة خاصة'},
     quote: {
       en: 'The charred aubergine starter and truffle risotto struck an effortless balance between comfort and restraint. Warm, attentive pacing throughout the evening.',
       ar: 'توازن رائع بين نكهات الباذنجان المشوي وريزوتو الكمأة، مع خدمة هادئة واهتمام بأدق التفاصيل طوال الأمسية.',
@@ -366,8 +481,8 @@ export const SAMPLE_TESTIMONIALS: TestimonialSample[] = [
   {
     id: 't2',
     author: {en: 'Sample Guest — Mariam K.', ar: 'نموذج ضيفة — مريم ك.'},
-    city: {en: 'Dubai DIFC', ar: 'فرع دبي المالي'},
-    visitContext: {en: 'Business Lunch', ar: 'غداء عمل'},
+    city: {en: 'Dubai Demo Branch', ar: 'فرع دبي التجريبي'},
+    visitContext: {en: 'Sample Review · Business Lunch', ar: 'مراجعة نموذجية · غداء عمل'},
     quote: {
       en: 'Calm acoustics, generous table spacing, and the grilled salmon arrived crisp and perfectly seasoned. An ideal setting for unhurried conversation.',
       ar: 'أجواء هادئة ومسافات مريحة بين الطاولات، والسلمون المشوي وصل بدرجة نضج مثالية. مكان راقٍ للقاءات العمل الهادئة.',
@@ -376,8 +491,8 @@ export const SAMPLE_TESTIMONIALS: TestimonialSample[] = [
   {
     id: 't3',
     author: {en: 'Sample Guest — Omar S.', ar: 'نموذج ضيف — عمر س.'},
-    city: {en: 'Doha Msheireb', ar: 'فرع الدوحة مشيرب'},
-    visitContext: {en: 'Family Gathering', ar: 'عشاء عائلي'},
+    city: {en: 'Doha Demo Branch', ar: 'فرع الدوحة التجريبي'},
+    visitContext: {en: 'Sample Review · Family Dinner', ar: 'مراجعة نموذجية · عشاء عائلي'},
     quote: {
       en: 'From the first pour of saffron Arabic coffee to the pistachio dessert, every detail felt thoughtful rather than rushed.',
       ar: 'من فنجان القهوة العربية بالزعفران حتى حلوى الفستق، كل تفصيل في التجربة كان مدروساً بعناية وذوق رفيع.',

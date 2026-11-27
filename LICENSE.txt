@@ -1,0 +1,91 @@
+NŪRA RESTAURANT WEBSITE TEMPLATE — COMMERCIAL TEMPLATE LICENSE
+================================================================
+
+NOTICE TO SELLER (REMOVE OR FINALIZE BEFORE COMMERCIAL DISTRIBUTION):
+This document is a structured commercial license draft prepared for the NŪRA
+Restaurant Website Template. It is NOT an official Codester license or legal
+advice, and does not create marketplace-specific legal guarantees. Before
+selling or distributing this template, confirm and fill in the seller-specific
+items in Section 6 ("Seller Confirmation Checklist").
+
+----------------------------------------------------------------
+1. DEFINITIONS
+----------------------------------------------------------------
+- "Template" means the NŪRA Restaurant Website Template source code,
+  documentation, stylesheets, configuration files, and bundled original SVG
+  assets included in this package (excluding third-party assets listed in
+  CREDITS.txt, which remain governed by their respective licenses).
+- "Licensor" / "Seller" means [SELLER LEGAL NAME OR STUDIO NAME].
+- "Licensee" / "Buyer" means the individual or organization that lawfully
+  purchased or obtained a license to use the Template.
+- "End Product" means a customized, deployed website created for the Licensee
+  or for a single client of the Licensee.
+
+----------------------------------------------------------------
+2. PERMITTED USE & COMMERCIAL RIGHTS
+----------------------------------------------------------------
+Subject to compliance with this License, the Licensor grants the Licensee a
+non-exclusive, non-transferable, worldwide license to:
+
+a) Use the Template to build a single commercial or personal End Product (one
+   public website or web application for a single restaurant brand, including
+   its branches) — OR multiple End Products if an Extended / Multi-Use license
+   tier is explicitly granted by the Seller at purchase.
+b) Customize, modify, translate, and adapt the source code, layout, colors,
+   typography, menu items, branches, and content to suit the End Product.
+c) Host and deploy the compiled End Product (`dist/` or equivalent static
+   output) on commercial hosting platforms (such as Vercel, Netlify, GitHub
+   Pages, or private web servers).
+d) Deliver a customized End Product to a single paying client (if you are a
+   freelancer or agency), provided the client does not receive rights to resell
+   or redistribute the underlying Template.
+
+----------------------------------------------------------------
+3. RESTRICTIONS
+----------------------------------------------------------------
+The Licensee MUST NOT:
+
+a) Resell, sublicense, rent, lease, lend, or redistribute the original or
+   lightly modified Template as a website template, starter kit, UI kit, or
+   digital marketplace product.
+b) Publish the Template source code publicly in an open-source repository
+   (e.g., public GitHub/GitLab repositories), file-sharing site, or public
+   archive where third parties can download the source template for free.
+c) Claim authorship or exclusive ownership of the original Template design or
+   source code.
+d) Use the Template or its bundled sample assets in any unlawful, defamatory,
+   or misleading manner (including publishing the placeholder reviews, sample
+   metrics, or demo branch details as verified real-world claims).
+
+----------------------------------------------------------------
+4. THIRD-PARTY ASSETS
+----------------------------------------------------------------
+Third-party fonts, icon libraries, software packages, and photography assets
+referenced or bundled in this package are subject to their own licenses as
+documented in `CREDITS.txt`. The Licensee is responsible for reviewing
+`CREDITS.txt` and replacing any assets whose commercial redistribution terms
+have not been verified for their intended use.
+
+----------------------------------------------------------------
+5. DISCLAIMER OF WARRANTY
+----------------------------------------------------------------
+The Template is provided "AS IS", without warranty of any kind, express or
+implied, including but not limited to merchantability, fitness for a
+particular purpose, or non-infringement. The Licensor is not responsible for
+damages arising from deployment, third-party hosting, WhatsApp link behavior,
+or customizations made by the Licensee.
+
+----------------------------------------------------------------
+6. SELLER CONFIRMATION CHECKLIST (COMPLETE BEFORE RELEASE)
+----------------------------------------------------------------
+Before releasing this package commercially, the Seller must confirm and
+update the following items:
+[ ] Replace [SELLER LEGAL NAME OR STUDIO NAME] and add seller support email.
+[ ] Specify License Tiers (Single-Site / Single-Client vs. Multi-Client /
+    Extended) to match your storefront or marketplace listing.
+[ ] Confirm governing law / jurisdiction clause with legal counsel if needed.
+[ ] If selling on a third-party marketplace (e.g., Codester, ThemeForest,
+    Gumroad), replace or align this file with that marketplace's required
+    license terms.
+[ ] Verify commercial redistribution rights for all photography assets flagged
+    in `CREDITS.txt` before distributing paid ZIP packages.

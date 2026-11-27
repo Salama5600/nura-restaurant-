@@ -9,7 +9,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import {useApp} from '../context/AppContext';
-import {BRANCHES} from '../data/restaurantData';
+import {BRANCHES, SITE_CONFIG} from '../data/restaurantData';
 
 export const ContactPage: React.FC = () => {
   const {lang, navigate, t} = useApp();
@@ -211,22 +211,45 @@ export const ContactPage: React.FC = () => {
               <p className="text-xs text-cream/70 tabular-nums" dir="ltr">
                 {activeBranch.coordinates}
               </p>
+              <p className="text-xs text-cream/75 leading-relaxed max-w-md">
+                {activeBranch.mapNote[lang]}
+              </p>
             </div>
 
-            <div className="relative pt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/15">
-              <div className="flex items-center gap-2 text-xs text-cream/80">
-                <Navigation className="w-4 h-4 text-gold-bright" aria-hidden="true" />
-                <span>{activeBranch.address[lang]}</span>
+            <div className="relative pt-6 space-y-4 border-t border-white/15">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-2 text-xs text-cream/80">
+                  <Navigation className="w-4 h-4 text-gold-bright shrink-0" aria-hidden="true" />
+                  <span>{activeBranch.address[lang]}</span>
+                </div>
+                <a
+                  href={activeBranch.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cream text-olive text-xs font-semibold hover:bg-gold-bright transition-colors whitespace-nowrap shrink-0"
+                >
+                  <span>{t('actions.openMaps')}</span>
+                  <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                </a>
               </div>
-              <a
-                href={activeBranch.mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cream text-olive text-xs font-semibold hover:bg-gold-bright transition-colors whitespace-nowrap shrink-0"
-              >
-                <span>{t('actions.openMaps')}</span>
-                <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
-              </a>
+
+              <div className="flex flex-wrap items-center gap-4 pt-3 border-t border-white/10 text-xs text-cream/75">
+                <span className="text-gold-bright font-medium">
+                  {t('contact.socialTitle')}:
+                </span>
+                {SITE_CONFIG.socialLinks.map((social) => (
+                  <a
+                    key={social.id}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    dir="ltr"
+                    className="hover:text-gold-bright transition-colors underline underline-offset-4"
+                  >
+                    {social.handle}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>

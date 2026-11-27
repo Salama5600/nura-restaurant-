@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import {useApp} from '../context/AppContext';
 import {
+  DEMO_STATS,
   IMAGES,
   MENU_ITEMS,
   SAMPLE_TESTIMONIALS,
@@ -44,6 +45,11 @@ export const HomePage: React.FC = () => {
               ? 'Signature seared salmon plated at NŪRA dining room'
               : 'طبق السلمون المشوي المميز في مطعم نُورا'
           }
+          width={1376}
+          height={768}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           referrerPolicy="no-referrer"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
@@ -138,9 +144,12 @@ export const HomePage: React.FC = () => {
                     ? 'NŪRA warm evening dining room with olive trees and amber pendant lights'
                     : 'صالة الطعام المسائية في نُورا مع أشجار الزيتون والإضاءة الدافئة'
                 }
+                width={1376}
+                height={768}
                 loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
               />
             </div>
 
@@ -174,49 +183,31 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Laurel Metrics Card */}
+            {/* Laurel Metrics Card (Centralized Sample Data) */}
             <div className="lg:col-span-3 bg-sand/75 rounded-2xl p-6 border border-olive/8 flex flex-col justify-between gap-6">
               <div className="space-y-5 my-auto">
-                <div className="relative flex flex-col items-center text-center py-1">
-                  <LaurelWreath className="w-36 h-12 text-gold/75" />
-                  <div className="-mt-10">
-                    <div className="font-serif text-3xl font-semibold text-olive tabular-nums">
-                      10+
+                {DEMO_STATS.map((stat, idx) => (
+                  <React.Fragment key={stat.id}>
+                    {idx > 0 && <div className="h-px bg-olive/10 w-3/4 mx-auto" />}
+                    <div className="relative flex flex-col items-center text-center py-1">
+                      <LaurelWreath className="w-36 h-12 text-gold/75" />
+                      <div className="-mt-10">
+                        <div className="inline-flex items-center gap-1 font-serif text-3xl font-semibold text-olive tabular-nums">
+                          <span>{stat.value}</span>
+                          {stat.hasStar && (
+                            <Star
+                              className="w-4 h-4 fill-gold text-gold"
+                              aria-hidden="true"
+                            />
+                          )}
+                        </div>
+                        <div className="text-xs text-muted mt-0.5">
+                          {t(stat.labelKey)}
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-xs text-muted mt-0.5">
-                      {t('about.metricYearsLabel')}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="h-px bg-olive/10 w-3/4 mx-auto" />
-
-                <div className="relative flex flex-col items-center text-center py-1">
-                  <LaurelWreath className="w-36 h-12 text-gold/75" />
-                  <div className="-mt-10">
-                    <div className="font-serif text-3xl font-semibold text-olive tabular-nums">
-                      50k+
-                    </div>
-                    <div className="text-xs text-muted mt-0.5">
-                      {t('about.metricGuestsLabel')}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="h-px bg-olive/10 w-3/4 mx-auto" />
-
-                <div className="relative flex flex-col items-center text-center py-1">
-                  <LaurelWreath className="w-36 h-12 text-gold/75" />
-                  <div className="-mt-10">
-                    <div className="inline-flex items-center gap-1 font-serif text-3xl font-semibold text-olive tabular-nums">
-                      <span>4.8</span>
-                      <Star className="w-4 h-4 fill-gold text-gold" aria-hidden="true" />
-                    </div>
-                    <div className="text-xs text-muted mt-0.5">
-                      {t('about.metricRatingLabel')}
-                    </div>
-                  </div>
-                </div>
+                  </React.Fragment>
+                ))}
               </div>
 
               <p className="text-[11px] text-muted/85 text-center leading-snug">
@@ -269,9 +260,12 @@ export const HomePage: React.FC = () => {
                         <img
                           src={dish.image}
                           alt={dish.name[lang]}
+                          width={960}
+                          height={717}
                           loading="lazy"
+                          decoding="async"
                           referrerPolicy="no-referrer"
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                         />
                       )}
                     </div>
